@@ -4,5 +4,6 @@ from .models import Post
 
 
 def post_list(request):
-    posts = Post.objects.filter(updated__lte=timezone.now()).order_by('updated')
+    posts = Post.objects.order_by('-updated')
+
     return render(request, 'blog/post_list.html', {'posts': posts})
