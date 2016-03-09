@@ -3,6 +3,6 @@ from .models import Post
 
 
 def post_list(request):
-    posts = Post.objects.order_by('-updated')
+    # posts = Post.objects.all
 
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': Post.objects.all})
