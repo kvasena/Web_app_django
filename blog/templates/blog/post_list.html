@@ -2,7 +2,7 @@
 
 <html>
         <head>
-            <title>Django Girls blog</title>
+            <title>Bloglog</title>
              <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
              <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
              <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -15,7 +15,15 @@
             <div class="content container">
                 <div class="row">
                     <div class="col-md-8">
-        {{ posts }}
+                        {% for post in posts %}
+                            <div class="post">
+                                <div class="date">
+                                    {{ post.updated }}
+                                </div>
+                                <h1><a href="">{{ post.title }}</a></h1>
+                                <p>{{ post.text|linebreaks }}</p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
